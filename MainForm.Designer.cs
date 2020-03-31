@@ -49,6 +49,7 @@
             this.btPush.TabIndex = 1;
             this.btPush.Text = "Push";
             this.btPush.UseVisualStyleBackColor = true;
+            this.btPush.Click += new System.EventHandler(this.BtPush_Click);
             // 
             // btPop
             // 
@@ -58,6 +59,7 @@
             this.btPop.TabIndex = 2;
             this.btPop.Text = "Pop";
             this.btPop.UseVisualStyleBackColor = true;
+            this.btPop.Click += new System.EventHandler(this.BtPop_Click);
             // 
             // tbStack
             // 
@@ -79,7 +81,6 @@
             this.Controls.Add(this.tbPushOrPop);
             this.Name = "MainForm";
             this.Text = "Стек и очередь";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

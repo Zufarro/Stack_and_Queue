@@ -12,14 +12,24 @@ namespace Stack_and_Queue
 {
     public partial class MainForm : Form
     {
+        Stack stack = new Stack();
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void BtPush_Click(object sender, EventArgs e)
         {
+          stack.showStack(tbStack, tbPushOrPop, "Push");
+        }
+
+        private void BtPop_Click(object sender, EventArgs e)
+        {
+            stack.showStack(tbStack, tbPushOrPop, "Pop");
 
         }
+
+        
     }
 }
