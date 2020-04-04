@@ -9,13 +9,13 @@ namespace Stack_and_Queue
 
     class Stack
     {
-        static int MaxLength = 100;
+        static int MaxLength = 3;
         string[] Data = new string[MaxLength];
         int Top = -1;
 
-        public void Push(string inputData)
+        private void Push(string inputData)
         {
-            if (Top < MaxLength - 1)
+            if (Top < MaxLength - 1 && inputData != "")
             {
                 Top++;
                 Data[Top] = inputData;
@@ -26,7 +26,7 @@ namespace Stack_and_Queue
             }
         }
 
-        public string Pop()
+        private string Pop()
         {
             if (Top == -1)
             {
@@ -39,27 +39,27 @@ namespace Stack_and_Queue
                 return temp;
             }
         }
-        public void showStack(System.Windows.Forms.TextBox tbOutput, System.Windows.Forms.TextBox tbInput, string PopOrPush)
+
+        public void DoPush(System.Windows.Forms.TextBox tbOutput, System.Windows.Forms.TextBox tbInput)
         {
-            if (PopOrPush == "Push")
-            {
                 Push(tbInput.Text);
-            }
-            else if (PopOrPush == "Pop")
-            {
-                Pop();
-            }
-            else
-            {
-                return;
-            }
-            
             tbOutput.Clear();
             for (int i = Top; i >= 0; i--)
             {
                 tbOutput.AppendText(Data[i] + Environment.NewLine);
             }
             tbInput.Clear();
+        }
+        public void DoPop(System.Windows.Forms.TextBox tbOutput, System.Windows.Forms.TextBox tbInput)
+        {
+            string getTop = Pop();
+            tbOutput.Clear();
+            for (int i = Top; i >= 0; i--)
+            {
+                tbOutput.AppendText(Data[i] + Environment.NewLine);
+            }
+            tbInput.Clear();
+            tbInput.AppendText(getTop);
         }
     }
 }
